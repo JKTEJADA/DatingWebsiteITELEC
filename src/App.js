@@ -2,11 +2,23 @@ import React, { useState } from 'react';
 import './DatingApp.css'; // Import CSS file
 
 
+
+
+const horoscopeSigns = [
+  'All', 'Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces'
+];
+
+const sampleProfiles = [
+  { id: 1, name: 'John', age: 25, horoscope: 'Aries', gender: 'Male', bio: 'I love hiking and reading.', image: 'https://via.placeholder.com/150' },
+
+  // Add image URLs for other profiles
+];
+
 const url = 'https://love-calculator.p.rapidapi.com/getPercentage?sname=Alice&fname=John';
 const options = {
   method: 'GET',
   headers: {
-    'X-RapidAPI-Key': '4f4af7475dmsh366b14cf8bd69f1p11508ajsn078f955ac835',
+    'X-RapidAPI-Key': 'e85ef444c0msh8b70ca519eadeebp1f4454jsnf8d69a51c6d8',
     'X-RapidAPI-Host': 'love-calculator.p.rapidapi.com'
   }
 };
@@ -20,14 +32,7 @@ try {
 	console.error(error);
 }
 
-const horoscopeSigns = [
-  'All', 'Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces'
-];
 
-const sampleProfiles = [
-  { id: 1, name: 'John', age: 25, horoscope: 'Aries', gender: 'Male', bio: 'I love hiking and reading.', image: 'https://via.placeholder.com/150' },
-  // Add image URLs for other profiles
-];
 
 const DatingApp = () => {
   const [profiles, setProfiles] = useState([...sampleProfiles]);
