@@ -31,38 +31,86 @@ const sampleProfiles = [
   { id: 20, name: 'Ella', age: 26, horoscope: 'Virgo', gender: 'Female', bio: 'I\'m a beach lover and enjoy surfing and snorkeling.' },
 ];
 
-const fname = "Imran";
-const sname = "Frenchell";
-
-const url = `https://love-calculator.p.rapidapi.com/getPercentage?sname=${sname}&fname=${fname}`;
-const options = {
-  method: 'GET',
-  headers: {
-    'X-RapidAPI-Key': 'e85ef444c0msh8b70ca519eadeebp1f4454jsnf8d69a51c6d8',
-    'X-RapidAPI-Host': 'love-calculator.p.rapidapi.com'
-  }
-};
 
 
-try {
-	const response = await fetch(url, options);
-	const result = await response.json();
-  console.log(result)
-	console.log(result.percentage);
-  // result.fname;
+// const url = `https://love-calculator.p.rapidapi.com/getPercentage?sname=${sname}&fname=${fname}`;
+// const options = {
+//   method: 'GET',
+//   headers: {
+//     'X-RapidAPI-Key': 'e85ef444c0msh8b70ca519eadeebp1f4454jsnf8d69a51c6d8',
+//     'X-RapidAPI-Host': 'love-calculator.p.rapidapi.com'
+//   }
+// };
+
+
+// try {
+// 	const response = await fetch(url, options);
+// 	const result = await response.json();
+//   console.log(result)
+// 	console.log(result.percentage);
+//   // result.fname;
   
-} catch (error) {
-	console.error(error);
-}
+// } catch (error) {
+// 	console.error(error);
+// }
 
 
 
 const DatingApp = () => {
   const [profiles, setProfiles] = useState([...sampleProfiles]);
+  const [clickedProfiles, setClickedProfiles] = useState([]);
   const [newProfile, setNewProfile] = useState({ name: '', age: '', horoscope: 'All', gender: 'All', bio: '', image: '' });
   const [editProfile, setEditProfile] = useState(null);
   const [filterHoroscope, setFilterHoroscope] = useState('All');
   const [fortune, setFortune] = useState('');
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalContent, setModalContent] = useState('');
+
+  const handleProfileClick = (profile) => {
+    // Add clicked profile to the state
+    setClickedProfiles([...clickedProfiles, profile]);
+  
+    // If two profiles have been clicked, calculate compatibility
+    if (clickedProfiles.length === 1) {
+      const fname = clickedProfiles[0].name;
+      const sname = profile.name;
+  
+      const url = `https://love-calculator.p.rapidapi.com/getPercentage?sname=${sname}&fname=${fname}`;
+      const options = {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Key': 'e85ef444c0msh8b70ca519eadeebp1f4454jsnf8d69a51c6d8',
+          'X-RapidAPI-Host': 'love-calculator.p.rapidapi.com'
+        }
+      };
+  
+      fetch(url, options)
+        .then(response => response.json())
+        .then(result => {
+          console.log(result)
+          setModalContent(
+            <div>
+              Compatibility result between <br />
+              {fname} & {sname} <br />
+              <br />
+              Percentage: {result.percentage}% <br />
+              {result.result}
+            </div>
+          );
+          setModalOpen(true);
+        })
+        .catch(error => console.error(error));
+    }
+  };
+  const closeModal = () => {
+    // Reset the modal content
+    setModalContent('');
+    // Close the modal
+    setModalOpen(false);
+    // Reset clickedProfiles
+    setClickedProfiles([]);
+  };
+
 
   const addProfile = () => {
     setProfiles([...profiles, { ...newProfile, id: Date.now() }]);
@@ -96,6 +144,14 @@ const DatingApp = () => {
 
   return (
     <div className="dating-app">
+       {modalOpen && (
+        <div className="modal">
+          <div className="modal-content">
+            <span className="close" onClick={closeModal}>&times;</span>
+            <p>{modalContent}</p>
+          </div>
+        </div>
+      )}
       <h1>Dating App</h1>
       <div className="add-profile">
         <input
@@ -144,7 +200,7 @@ const DatingApp = () => {
       </div>
       <div className="profile-container">
         {filterProfiles().map(profile => (
-          <div key={profile.id} className="profile-card">
+          <div key={profile.id} className="profile-card" onClick={() => handleProfileClick(profile)}>
             <img src={profile.image} alt={profile.name} />
             <h2>{profile.name}</h2>
             <p>Age: {profile.age}</p>
@@ -156,6 +212,7 @@ const DatingApp = () => {
           </div>
         ))}
       </div>
+      
       {editProfile && (
         <div className="edit-profile">
           <input
