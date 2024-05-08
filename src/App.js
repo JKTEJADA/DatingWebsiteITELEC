@@ -9,12 +9,32 @@ const horoscopeSigns = [
 ];
 
 const sampleProfiles = [
-  { id: 1, name: 'John', age: 25, horoscope: 'Aries', gender: 'Male', bio: 'I love hiking and reading.', image: 'https://via.placeholder.com/150' },
-
-  // Add image URLs for other profiles
+  { id: 1, name: 'John', age: 25, horoscope: 'Aries', gender: 'Male', bio: 'I love hiking and reading.' },
+  { id: 2, name: 'Emma', age: 30, horoscope: 'Libra', gender: 'Female', bio: 'I enjoy cooking and traveling.' },
+  { id: 3, name: 'Michael', age: 28, horoscope: 'Leo', gender: 'Male', bio: 'I\'m a musician and a coffee enthusiast.' },
+  { id: 4, name: 'Sophia', age: 27, horoscope: 'Pisces', gender: 'Female', bio: 'I\'m passionate about photography and yoga.' },
+  { id: 5, name: 'James', age: 26, horoscope: 'Scorpio', gender: 'Male', bio: 'I like playing basketball and watching movies.' },
+  { id: 6, name: 'Olivia', age: 29, horoscope: 'Aquarius', gender: 'Female', bio: 'I\'m a bookworm and love going to art galleries.' },
+  { id: 7, name: 'William', age: 31, horoscope: 'Taurus', gender: 'Male', bio: 'I\'m a foodie and enjoy trying new cuisines.' },
+  { id: 8, name: 'Isabella', age: 24, horoscope: 'Gemini', gender: 'Female', bio: 'I love dancing and going to music festivals.' },
+  { id: 9, name: 'Alexander', age: 27, horoscope: 'Cancer', gender: 'Male', bio: 'I\'m passionate about fitness and health.' },
+  { id: 10, name: 'Sophie', age: 28, horoscope: 'Virgo', gender: 'Female', bio: 'I\'m a dog lover and enjoy outdoor activities.' },
+  { id: 11, name: 'Daniel', age: 29, horoscope: 'Capricorn', gender: 'Male', bio: 'I\'m a tech enthusiast and love coding.' },
+  { id: 12, name: 'Mia', age: 26, horoscope: 'Sagittarius', gender: 'Female', bio: 'I\'m adventurous and love traveling to exotic places.' },
+  { id: 13, name: 'Benjamin', age: 30, horoscope: 'Pisces', gender: 'Male', bio: 'I\'m a nature lover and enjoy hiking in the mountains.' },
+  { id: 14, name: 'Charlotte', age: 28, horoscope: 'Aries', gender: 'Female', bio: 'I\'m a fashionista and love designing clothes.' },
+  { id: 15, name: 'Samuel', age: 32, horoscope: 'Leo', gender: 'Male', bio: 'I\'m a movie buff and enjoy watching classic films.' },
+  { id: 16, name: 'Emily', age: 25, horoscope: 'Libra', gender: 'Female', bio: 'I\'m an animal lover and enjoy volunteering at shelters.' },
+  { id: 17, name: 'Matthew', age: 27, horoscope: 'Taurus', gender: 'Male', bio: 'I\'m a gamer and love playing video games.' },
+  { id: 18, name: 'Amelia', age: 29, horoscope: 'Gemini', gender: 'Female', bio: 'I\'m a music junkie and love going to concerts.' },
+  { id: 19, name: 'David', age: 28, horoscope: 'Cancer', gender: 'Male', bio: 'I\'m a coffee connoisseur and enjoy trying different blends.' },
+  { id: 20, name: 'Ella', age: 26, horoscope: 'Virgo', gender: 'Female', bio: 'I\'m a beach lover and enjoy surfing and snorkeling.' },
 ];
 
-const url = 'https://love-calculator.p.rapidapi.com/getPercentage?sname=Alice&fname=John';
+const fname = "Him";
+const sname = "Her";
+
+const url = `https://love-calculator.p.rapidapi.com/getPercentage?sname=${sname}&fname=${fname}`;
 const options = {
   method: 'GET',
   headers: {
@@ -26,8 +46,11 @@ const options = {
 
 try {
 	const response = await fetch(url, options);
-	const result = await response.text();
-	console.log(result);
+	const result = await response.json();
+  console.log(result)
+	console.log(result.percentage);
+  // result.fname;
+  
 } catch (error) {
 	console.error(error);
 }
