@@ -67,15 +67,20 @@ const DatingApp = () => {
   const [modalContent, setModalContent] = useState('');
 
   const handleProfileClick = (profileId) => {
-    // Find the clicked profile
     const clickedProfile = profiles.find(profile => profile.id === profileId);
+  
+    // Check if the clicked profile is already in clickedProfiles array
+    if (clickedProfiles.some(profile => profile.id === clickedProfile.id)) {
+      return;
+    }
   
     // If there are already two clicked profiles, reset the clicked profiles array
     if (clickedProfiles.length === 2) {
       return;
     }
+    
     setClickedProfiles([...clickedProfiles, clickedProfile]);
-    // If two profiles have been clicked, calculate compatibility
+  
     if (clickedProfiles.length === 1) {
       const fname = clickedProfiles[0].name;
       const sname = clickedProfile.name;
