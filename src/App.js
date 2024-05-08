@@ -31,8 +31,8 @@ const sampleProfiles = [
   { id: 20, name: 'Ella', age: 26, horoscope: 'Virgo', gender: 'Female', bio: 'I\'m a beach lover and enjoy surfing and snorkeling.' },
 ];
 
-const fname = "Him";
-const sname = "Her";
+const fname = "Imran";
+const sname = "Frenchell";
 
 const url = `https://love-calculator.p.rapidapi.com/getPercentage?sname=${sname}&fname=${fname}`;
 const options = {
