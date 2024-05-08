@@ -66,14 +66,19 @@ const DatingApp = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState('');
 
-  const handleProfileClick = (profile) => {
-    // Add clicked profile to the state
-    setClickedProfiles([...clickedProfiles, profile]);
+  const handleProfileClick = (profileId) => {
+    // Find the clicked profile
+    const clickedProfile = profiles.find(profile => profile.id === profileId);
   
+    // If there are already two clicked profiles, reset the clicked profiles array
+    if (clickedProfiles.length === 2) {
+      return;
+    }
+    setClickedProfiles([...clickedProfiles, clickedProfile]);
     // If two profiles have been clicked, calculate compatibility
     if (clickedProfiles.length === 1) {
       const fname = clickedProfiles[0].name;
-      const sname = profile.name;
+      const sname = clickedProfile.name;
   
       const url = `https://love-calculator.p.rapidapi.com/getPercentage?sname=${sname}&fname=${fname}`;
       const options = {
@@ -87,7 +92,7 @@ const DatingApp = () => {
       fetch(url, options)
         .then(response => response.json())
         .then(result => {
-          console.log(result)
+          console.log(result);
           setModalContent(
             <div>
               Compatibility result between <br />
@@ -102,6 +107,7 @@ const DatingApp = () => {
         .catch(error => console.error(error));
     }
   };
+  
   const closeModal = () => {
     // Reset the modal content
     setModalContent('');
@@ -144,14 +150,34 @@ const DatingApp = () => {
 
   return (
     <div className="dating-app">
-       {modalOpen && (
-        <div className="modal">
-          <div className="modal-content">
-            <span className="close" onClick={closeModal}>&times;</span>
-            <p>{modalContent}</p>
-          </div>
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a className="navbar-brand" href="../App.js">Affinity</a>
+        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav ml-auto">
+            <li className="nav-item active">
+              <a className="nav-link" href="../App.js">Landing Page</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">Dating Page</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">Horoscope Page</a>
+            </li>
+          </ul>
         </div>
-      )}
+      </nav>
+        {modalOpen && (
+      <div className="modal">
+        <div className="modal-content">
+          <span className="close" onClick={closeModal}>&times;</span>
+          {modalContent}
+        </div>
+      </div>
+    )}
       <h1>Dating App</h1>
       <div className="add-profile">
         <input
@@ -200,7 +226,7 @@ const DatingApp = () => {
       </div>
       <div className="profile-container">
         {filterProfiles().map(profile => (
-          <div key={profile.id} className="profile-card" onClick={() => handleProfileClick(profile)}>
+          <div key={profile.id} className={`profile-card ${clickedProfiles.some(p => p.id === profile.id) ? 'glow' : ''}`} onClick={() => handleProfileClick(profile.id)}>
             <img src={profile.image} alt={profile.name} />
             <h2>{profile.name}</h2>
             <p>Age: {profile.age}</p>

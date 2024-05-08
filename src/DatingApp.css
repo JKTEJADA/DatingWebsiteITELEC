@@ -97,3 +97,38 @@ select {
   text-decoration: none;
   cursor: pointer;
 }
+
+.glow {
+  border: 2px solid #05e8e8;
+  box-shadow: 0 0 10px #05e8e8;
+}
+
+.navbar {
+  background-color: #292c37;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-title {
+  color: #ffffff;
+  font-size: 24px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #8c2bbf;
+}
