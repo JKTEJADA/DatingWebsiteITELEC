@@ -104,11 +104,12 @@ select {
 }
 
 .navbar {
-  background-color: #292c37;
+  background-color: #8c2bbf;
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 2%;
 }
 
 .nav-title {
@@ -131,4 +132,40 @@ select {
 
 .nav-links li a:hover {
   color: #8c2bbf;
+}
+
+/*Navbar*/
+.head {
+  background-color: white;
+}
+.text-type {
+  color: white;
+  font-weight: bold;
+  float: left;
+  display: inline;
+  padding: 5px;
+  text-decoration: none;
+}
+.text-type:hover {
+  color: white;
+}
+.text-type-right {
+  color: white;
+  font-weight: bold;
+  float: right;
+  display: inline;
+  margin-right: 5px;
+  padding: 5px;
+  text-decoration: none;
+}
+.text-type-right:hover {
+  color: white;
+}
+img {
+  width: 100px;
+}
+.nav {
+  margin: 5px;
+  color: black;
+  min-height: 30px;
 }
