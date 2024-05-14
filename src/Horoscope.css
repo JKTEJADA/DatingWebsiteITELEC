@@ -1,0 +1,180 @@
+.dating-app {
+    font-family: Arial, sans-serif;
+    background-color: #14161c;
+    color: #ffffff;
+    padding: 20px;
+  }
+  
+  .add-profile {
+    margin-bottom: 20px;
+  }
+  
+  .profile-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  /* Add background colors for each zodiac sign */
+  .profile-card.aries {
+    background-color: #FF5733; /* Aries */
+  }
+  
+  .profile-card.taurus {
+    background-color: #D4AC0D; /* Taurus */
+  }
+  
+  .profile-card.gemini {
+    background-color: #A569BD; /* Gemini */
+  }
+  
+  .profile-card.cancer {
+    background-color: #5DADE2; /* Cancer */
+  }
+  
+  .profile-card.leo {
+    background-color: #F39C12; /* Leo */
+  }
+  
+  .profile-card.virgo {
+    background-color: #27AE60; /* Virgo */
+  }
+  
+  .profile-card.libra {
+    background-color: #85C1E9; /* Libra */
+  }
+  
+  .profile-card.scorpio {
+    background-color: #C0392B; /* Scorpio */
+  }
+  
+  .profile-card.sagittarius {
+    background-color: #E59866; /* Sagittarius */
+  }
+  
+  .profile-card.capricorn {
+    background-color: #7DCEA0; /* Capricorn */
+  }
+  
+  .profile-card.aquarius {
+    background-color: #3498DB; /* Aquarius */
+  }
+  
+  .profile-card.pisces {
+    background-color: #5D6D7E; /* Pisces */
+  }
+  
+  .profile-card {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    color: #ffffff; /* White text color */
+  }
+  
+  .edit-profile {
+    margin-top: 20px;
+    color: #ffffff; /* White text color */
+  }
+  
+  .filter {
+    margin-bottom: 20px;
+  }
+  
+  button {
+    background-color: #8c2bbf;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #6a0dad;
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  select {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #6a0dad;
+    border-radius: 5px;
+    color: #000000;
+  }
+  
+  .modal {
+    display: flex;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background-color: black;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 100%;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .glow {
+    border: 2px solid #05e8e8;
+    box-shadow: 0 0 10px #05e8e8;
+  }
+  
+  .navbar {
+    background-color: #292c37;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-title {
+    color: #ffffff;
+    font-size: 24px;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav-links li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links li a:hover {
+    color: #8c2bbf;
+  }

@@ -170,7 +170,7 @@ const DatingApp = () => {
               <a className="nav-link" href="#">Dating Page</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Horoscope Page</a>
+              <a className="nav-link" href="../Horoscope.js">Horoscope Page</a>
             </li>
           </ul>
         </div>
