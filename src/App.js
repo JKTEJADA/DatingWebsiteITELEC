@@ -231,42 +231,70 @@ const DatingApp = () => {
       </div>
       
       {editProfile && (
-        <div className="edit-profile">
-          <input
-            type="text"
-            placeholder="Name"
-            value={editProfile.name}
-            onChange={(e) => setEditProfile({ ...editProfile, name: e.target.value })}
-          />
-          <input
-            type="number"
-            placeholder="Age"
-            value={editProfile.age}
-            onChange={(e) => setEditProfile({ ...editProfile, age: e.target.value })}
-          />
-          <select value={editProfile.horoscope} onChange={(e) => setEditProfile({ ...editProfile, horoscope: e.target.value })}>
-            {horoscopeSigns.map(sign => (
-              <option key={sign} value={sign}>{sign}</option>
-            ))}
-          </select>
-          <select value={editProfile.gender} onChange={(e) => setEditProfile({ ...editProfile, gender: e.target.value })}>
-            <option value="All">All</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-          </select>
-          <input
-            type="text"
-            placeholder="Bio"
-            value={editProfile.bio}
-            onChange={(e) => setEditProfile({ ...editProfile, bio: e.target.value })}
-          />
-          <input
-            type="text"
-            placeholder="Image URL"
-            value={editProfile.image}
-            onChange={(e) => setEditProfile({ ...editProfile, image: e.target.value })}
-          />
-          <button onClick={updateProfile}>Update Profile</button>
+        <div
+          className="edit-profile-backdrop"
+          onClick={() => setEditProfile(null)}
+        >
+          <div
+            className="edit-profile-modal"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <input
+              type="text"
+              placeholder="Name"
+              value={editProfile.name}
+              onChange={(e) =>
+                setEditProfile({ ...editProfile, name: e.target.value })
+              }
+            />
+            <input
+              type="number"
+              placeholder="Age"
+              value={editProfile.age}
+              onChange={(e) =>
+                setEditProfile({ ...editProfile, age: e.target.value })
+              }
+            />
+            <select
+              value={editProfile.horoscope}
+              onChange={(e) =>
+                setEditProfile({ ...editProfile, horoscope: e.target.value })
+              }
+            >
+              {horoscopeSigns.map((sign) => (
+                <option key={sign} value={sign}>
+                  {sign}
+                </option>
+              ))}
+            </select>
+            <select
+              value={editProfile.gender}
+              onChange={(e) =>
+                setEditProfile({ ...editProfile, gender: e.target.value })
+              }
+            >
+              <option value="All">All</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+            <input
+              type="text"
+              placeholder="Bio"
+              value={editProfile.bio}
+              onChange={(e) =>
+                setEditProfile({ ...editProfile, bio: e.target.value })
+              }
+            />
+            <input
+              type="text"
+              placeholder="Image URL"
+              value={editProfile.image}
+              onChange={(e) =>
+                setEditProfile({ ...editProfile, image: e.target.value })
+              }
+            />
+            <button onClick={updateProfile}>Update Profile</button>
+          </div>
         </div>
       )}
     </div>
