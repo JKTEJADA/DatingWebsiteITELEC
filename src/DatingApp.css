@@ -182,3 +182,57 @@ select {
 .img{
   width: 100%;
 }
+@font-face {
+  font-family: 'atomed';
+  src: url('../public/semitomic.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.landing-page {
+  background-image: url("https://images.pexels.com/photos/1146134/pexels-photo-1146134.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background-size: cover;
+  background-position: center;
+  height: 110vh; /* Full viewport height */
+  position: relative; /* To position the rotating image */
+}
+
+.landing-page h1 {
+  color: white;
+  font-family: 'atomed';
+  font-size: 60px;
+  margin: 0; /* Remove default margin */
+}
+
+.landing-page p {
+  color: #fff;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 25px;
+  margin: 10px 0 0; /* Add margin for spacing */
+}
+.landing-page-content {
+  padding-left: 200px; /* Add left padding to move text to the right */
+}
+
+.horoscope-image {
+  position: absolute;
+  width: 550px; /* Adjust size as needed */
+  height: 550px; /* Adjust size as needed */
+  bottom: 100px; /* Adjust distance from the bottom */
+  right: 170px; /* Align to the right */
+  animation: rotate 40s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg); /* Counter-clockwise rotation */
+  }
+}
+@media (max-width: 1000px) {
+  .horoscope-image {
+    display: none; /* Hide the image when browser width is 1300px or less */
+  }
+}
