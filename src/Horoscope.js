@@ -50,7 +50,8 @@ function Horoscope() {
   return (
     <div className="dating-app">
 
-      <h1>Dating App</h1>
+      <h1 className='Font'>Affinity
+      </h1>
   
       <form onSubmit={handleSubmit} className="date-form">
         <label>
@@ -70,7 +71,7 @@ function Horoscope() {
       <div className="profile-container">
         {zodiacSigns.map((sign, index) => (
           <div key={index} className={`profile-card ${sign.sign.toLowerCase()}`}>
-            <h2>{sign.sign}</h2>
+            <h2 className='Font'>{sign.sign}</h2>
             <p>{sign.dates}</p>
             <p>{sign.description}</p>
           </div>
