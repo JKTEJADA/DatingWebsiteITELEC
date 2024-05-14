@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import './DatingApp.css'; // Import CSS file
 
-
-
-
 const horoscopeSigns = [
   'All', 'Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces'
 ];
@@ -30,31 +27,6 @@ const sampleProfiles = [
   { id: 19, name: 'David', age: 28, horoscope: 'Cancer', gender: 'Male', bio: 'I\'m a coffee connoisseur and enjoy trying different blends.' },
   { id: 20, name: 'Ella', age: 26, horoscope: 'Virgo', gender: 'Female', bio: 'I\'m a beach lover and enjoy surfing and snorkeling.' },
 ];
-
-
-
-// const url = `https://love-calculator.p.rapidapi.com/getPercentage?sname=${sname}&fname=${fname}`;
-// const options = {
-//   method: 'GET',
-//   headers: {
-//     'X-RapidAPI-Key': 'e85ef444c0msh8b70ca519eadeebp1f4454jsnf8d69a51c6d8',
-//     'X-RapidAPI-Host': 'love-calculator.p.rapidapi.com'
-//   }
-// };
-
-
-// try {
-// 	const response = await fetch(url, options);
-// 	const result = await response.json();
-//   console.log(result)
-// 	console.log(result.percentage);
-//   // result.fname;
-  
-// } catch (error) {
-// 	console.error(error);
-// }
-
-
 
 const DatingApp = () => {
   const [profiles, setProfiles] = useState([...sampleProfiles]);
@@ -121,7 +93,6 @@ const DatingApp = () => {
     // Reset clickedProfiles
     setClickedProfiles([]);
   };
-
 
   const addProfile = () => {
     setProfiles([...profiles, { ...newProfile, id: Date.now() }]);
@@ -238,8 +209,14 @@ const DatingApp = () => {
             <p>Horoscope: {profile.horoscope}</p>
             <p>Gender: {profile.gender}</p>
             <p>Bio: {profile.bio}</p>
-            <button onClick={() => deleteProfile(profile.id)}>Delete</button>
-            <button onClick={() => setEditProfileToEdit(profile.id)}>Edit</button>
+            <button onClick={(e) => {
+              e.stopPropagation();
+              deleteProfile(profile.id);
+            }}>Delete</button>
+            <button onClick={(e) => {
+              e.stopPropagation();
+              setEditProfileToEdit(profile.id);
+            }}>Edit</button>
           </div>
         ))}
       </div>
