@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import './DatingApp.css'; // Import CSS file
+import LandingPage from './LandingPage';
+import Horoscope from './Horoscope';
+import { BrowserRouter as Router, Link, Route, Routes, RouteElement } from 'react-router-dom';
 
 const horoscopeSigns = [
   'All', 'Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces'
@@ -125,27 +128,33 @@ const DatingApp = () => {
   };
 
   return (
+    <Router>
     <div className="dating-app">
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a className="navbar-brand" href="../App.js">Affinity</a>
+        <Link className="navbar-brand" to="/">Affinity</Link>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
-
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ml-auto">
-            <li className="nav-item active">
-              <a className="nav-link" href="../App.js">Landing Page</a>
+            <li className="nav-item">
+              <Link className="nav-link" to="/LandingPage">Landing Page</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Dating Page</a>
+              <Link className="nav-link" to="/dating">Dating Page</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="../Horoscope.js">Horoscope Page</a>
+              <Link className="nav-link" to="/Horoscope">Horoscope Page</Link>
             </li>
           </ul>
         </div>
       </nav>
+      <Routes>
+        <Route path="/LandingPage" element={<LandingPage />} />
+        <Route path="/" element={<DatingApp />} />
+        <Route path="/Horoscope" element={<Horoscope />} />
+      </Routes>
+
         {modalOpen && (
       <div className="modal">
         <div className="modal-content">
@@ -261,6 +270,7 @@ const DatingApp = () => {
         </div>
       )}
     </div>
+    </Router>
   );
 };
 
