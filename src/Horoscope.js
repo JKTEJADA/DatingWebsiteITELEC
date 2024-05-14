@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Horoscope.css'; // Import CSS file
 
 const zodiacSigns = [
-  { sign: 'Aries', dates: 'March 21 - April 19', description: 'Courageous, determined, confident, enthusiastic, optimistic, honest, passionate.', color: '#FF5733' },
+  { sign: 'Aries', dates: 'March 21 - April 19', description: 'Courageous, determined, confident, enthusiastic, optimistic, honest, passionate.', color: '#FF5733', },
   { sign: 'Taurus', dates: 'April 20 - May 20', description: 'Reliable, patient, practical, devoted, responsible, stable.', color: '#D4AC0D' },
   { sign: 'Gemini', dates: 'May 21 - June 20', description: 'Gentle, affectionate, curious, adaptable, ability to learn quickly and exchange ideas.', color: '#A569BD' },
   { sign: 'Cancer', dates: 'June 21 - July 22', description: 'Tenacious, highly imaginative, loyal, emotional, sympathetic, persuasive.', color: '#5DADE2' },

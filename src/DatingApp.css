@@ -178,3 +178,7 @@ select {
 .edit-profile-modal button:hover {
   background-color: #6a0dad;
 }
+
+.img{
+  width: 100%;
+}

@@ -6,9 +6,9 @@ const horoscopeSigns = [
 ];
 
 const sampleProfiles = [
-    { id: 1, name: 'John', age: 25, horoscope: 'Aries', gender: 'Male', bio: 'I love hiking and reading.' },
-    { id: 2, name: 'Emma', age: 30, horoscope: 'Libra', gender: 'Female', bio: 'I enjoy cooking and traveling.' },
-    { id: 3, name: 'Michael', age: 28, horoscope: 'Leo', gender: 'Male', bio: 'I\'m a musician and a coffee enthusiast.' },
+    { id: 1, name: 'John', age: 25, horoscope: 'Aries', gender: 'Male', bio: 'I love hiking and reading.', image: 'https://turkeyanaclinic.com/wp-content/uploads/2023/05/Baby-Face-02.jpg'},
+    { id: 2, name: 'Emma', age: 30, horoscope: 'Libra', gender: 'Female', bio: 'I enjoy cooking and traveling.', image: 'https://media.post.rvohealth.io/wp-content/uploads/2020/03/black_man_massaging_face-732x549-thumbnail-732x549.jpg' },
+    { id: 3, name: 'Michael', age: 28, horoscope: 'Leo', gender: 'Male', bio: 'I\'m a musician and a coffee enthusiast.', image: 'https://c8.alamy.com/comp/ER3EPG/full-body-shot-of-young-blonde-happy-woman-isolated-on-white-background-ER3EPG.jpg' },
     { id: 4, name: 'Sophia', age: 27, horoscope: 'Pisces', gender: 'Female', bio: 'I\'m passionate about photography and yoga.' },
     { id: 5, name: 'James', age: 26, horoscope: 'Scorpio', gender: 'Male', bio: 'I like playing basketball and watching movies.' },
     { id: 6, name: 'Olivia', age: 29, horoscope: 'Aquarius', gender: 'Female', bio: 'I\'m a bookworm and love going to art galleries.' },
@@ -189,7 +189,7 @@ const DatingApp = () => {
                     <div key={profile.id}
                          className={`profile-card ${clickedProfiles.some(p => p.id === profile.id) ? 'glow' : ''}`}
                          onClick={() => handleProfileClick(profile.id)}>
-                        <img src={profile.image} alt={profile.name}/>
+                        <img className='img' src={profile.image} alt={profile.name}/>
                         <h2>{profile.name}</h2>
                         <p>Age: {profile.age}</p>
                         <p>Horoscope: {profile.horoscope}</p>
