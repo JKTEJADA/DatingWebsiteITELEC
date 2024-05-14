@@ -60,6 +60,9 @@ function Horoscope() {
             <li className="nav-item">
               <a className="nav-link" href="../App.js">Landing Page</a>
             </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">Dating Page</a>
+            </li>
             <li className="nav-item active">
               <a className="nav-link" href="../App.js">Horoscope Page</a>
             </li>
