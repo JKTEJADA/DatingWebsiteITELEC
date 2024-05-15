@@ -233,6 +233,6 @@ select {
 }
 @media (max-width: 1000px) {
   .horoscope-image {
-    display: none; /* Hide the image when browser width is 1300px or less */
+    display: none; 
   }
 }
