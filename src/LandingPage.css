@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Uncial+Antiqua&display=swap');
+
+
+/* LandingPage.css */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+
+  }
+  
+  .landing-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+    text-align: center;
+    background: black;
+    position: relative;
+  }
+  
+  .landing-page .logo {
+    width:20%;
+  }
+
+
+  h1 {
+    font-size: 3em;
+    margin: 0.5em 0;
+    font-family: 'Cinzel', serif;
+  }
+  
+  p {
+    font-size: 1.5em;
+    margin: 0;
+  }
+  
