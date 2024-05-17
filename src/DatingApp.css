@@ -1,5 +1,5 @@
 /* Import fonts from Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Uncial+Antiqua&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Uncial+Antiqua&display=swap");
 
 /* Global styles */
 .body {
@@ -7,42 +7,39 @@
   padding: 0;
   width: 100%;
   height: 100%;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   background-image: "https://wallpapers.com/images/hd/cute-stars-y18y3kvnzrtyvizm.jpg";
   color: #ffffff;
- 
 }
 
 .dating-app {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   background-color: #14161c;
   color: #ffffff;
   padding: 20px;
 }
 
 .Title {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
 }
 
 .add-profile {
   margin-bottom: 20px;
-   font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
 }
 
 .profile-container {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-
-  
 }
 
 .profile-card .Name {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
 }
 
 .profile-container .h2 {
-  font-family: 'Uncial Antiqua', cursive;
+  font-family: "Uncial Antiqua", cursive;
 }
 
 .profile-card {
@@ -52,10 +49,8 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   color: #ffffff; /* White text color */
-  width:20%;
+  width: 20%;
 }
-
-
 
 .edit-profile {
   margin-top: 20px;
@@ -140,11 +135,11 @@ select {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
 }
 
 .nav-title {
-  font-family: 'Uncial Antiqua', serif;
+  font-family: "Uncial Antiqua", serif;
   color: #ffffff;
   font-size: 24px;
 }
@@ -195,7 +190,6 @@ select {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  
 }
 
 .edit-profile-modal button {
@@ -215,4 +209,59 @@ select {
 
 .img {
   width: 100%;
+}
+
+@font-face {
+  font-family: "atomed";
+  src: url("../public/semitomic.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.landing-page {
+  background-image: url("https://images.pexels.com/photos/1146134/pexels-photo-1146134.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background-size: cover;
+  background-position: center;
+  height: 110vh; /* Full viewport height */
+  position: relative; /* To position the rotating image */
+}
+
+.landing-page h1 {
+  color: white;
+  font-family: "atomed";
+  font-size: 60px;
+  margin: 0; /* Remove default margin */
+}
+
+.landing-page p {
+  color: #fff;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 25px;
+  margin: 10px 0 0; /* Add margin for spacing */
+}
+.landing-page-content {
+  padding-left: 200px; /* Add left padding to move text to the right */
+}
+
+.horoscope-image {
+  position: absolute;
+  width: 550px; /* Adjust size as needed */
+  height: 550px; /* Adjust size as needed */
+  bottom: 100px; /* Adjust distance from the bottom */
+  right: 170px; /* Align to the right */
+  animation: rotate 40s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg); /* Counter-clockwise rotation */
+  }
+}
+@media (max-width: 1000px) {
+  .horoscope-image {
+    display: none; /* Hide the image when browser width is 1300px or less */
+  }
 }
