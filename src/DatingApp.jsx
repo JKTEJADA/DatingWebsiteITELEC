@@ -298,12 +298,13 @@ const DatingApp = () => {
       alert("Age must be a positive number.");
       return;
     }
-    if (horoscope.toLowerCase() === "all") {
-      alert("Invalid horoscope sign.");
-      return;
+    if (horoscope === 'All') {
+      alert("Please select a horoscope sign.");
+      return; 
     }
-    if (gender !== "Male" && gender !== "Female" && gender !== "Other") {
-      alert("Invalid gender. Please select Male, Female, or Other.");
+    
+    if (gender !== "Male" && gender !== "Female") {
+      alert("Invalid gender. Please select Male, Female");
       return;
     }
 
@@ -314,8 +315,8 @@ const DatingApp = () => {
     setNewProfile({
       name: "",
       age: "",
-      horoscope: "All",
-      gender: "All",
+      horoscope: "",
+      gender: "",
       bio: "",
     });
     // setNewProfile({ name: '', age: '', horoscope: 'All', gender: 'All', bio: '', image: '' });
@@ -378,25 +379,32 @@ const DatingApp = () => {
             setNewProfile({ ...newProfile, age: e.target.value })
           }
         />
-        <select
-          value={newProfile.horoscope}
-          onChange={(e) =>
-            setNewProfile({ ...newProfile, horoscope: e.target.value })
-          }
-        >
-          {horoscopeSigns.map((sign) => (
-            <option key={sign} value={sign}>
-              {sign}
-            </option>
-          ))}
-        </select>
+   <select
+  value={newProfile.horoscope}
+  onChange={(e) =>
+    setNewProfile({ ...newProfile, horoscope: e.target.value })
+  }
+>
+  {horoscopeSigns.map((sign, index) => (
+    <option key={sign} value={sign} disabled={index === 0 && newProfile.horoscope !== ''} >
+      {index === 0 ? 'Select a Horoscope' : sign}
+    </option>
+  ))}
+</select>
+
+
+
+
+
+ 
         <select
           value={newProfile.gender}
           onChange={(e) =>
             setNewProfile({ ...newProfile, gender: e.target.value })
+            
           }
         >
-          <option value="All">All</option>
+          <option value = "All" disabled >  Select Gender </option>
           <option value="Male">Male</option>
           <option value="Female">Female</option>
         </select>
@@ -506,8 +514,7 @@ const DatingApp = () => {
               onChange={(e) =>
                 setEditProfile({ ...editProfile, gender: e.target.value })
               }
-            >
-              <option value="All">All</option>
+            > 
               <option value="Male">Male</option>
               <option value="Female">Female</option>
             </select>
