@@ -29,7 +29,7 @@ const RootLayout = () => {
               <Link
                 className="nav-link"
                 to="/LandingPage"
-                style={{ marginLeft: "5vw", marginRight: "-5vw" }}
+                style={{ marginLeft: "2vw" }}
               >
                 Landing Page
               </Link>
@@ -38,7 +38,7 @@ const RootLayout = () => {
               <Link
                 className="nav-link"
                 to="/dating"
-                style={{ marginLeft: "5vw", marginRight: "-5vw" }}
+                style={{ marginLeft: "2vw" }}
               >
                 Affinity
               </Link>
@@ -47,7 +47,7 @@ const RootLayout = () => {
               <Link
                 className="nav-link"
                 to="/Horoscope"
-                style={{ marginLeft: "5vw" }}
+                style={{ marginLeft: "2vw" }}
               >
                 Horoscope Page
               </Link>
